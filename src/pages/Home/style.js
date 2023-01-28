@@ -16,5 +16,6 @@ export const HomeSC = styled.div`
 `;
 
 export const ContentSC = styled.div`
-
+  display: grid;
+  gap: 3.2rem;
 `;

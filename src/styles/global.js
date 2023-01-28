@@ -11,6 +11,12 @@ export default createGlobalStyle`
     font-size: 62.5%;
   }
 
+  :focus {
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.green_500};
+
+    outline: transparent;
+  }
+
   body {
     background-color: ${({ theme }) => theme.colors.gray_900};
 

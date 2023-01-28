@@ -1,10 +1,44 @@
-import { PostsSC } from './style';
+import { PostsSC, ProfileSC, ContentSC, CommentsSC } from './style';
 
-export function Posts({ author, content }) {
+export function Posts() {
   return (
     <PostsSC>
-      <strong>{ author }</strong>
-      <p>{ content }</p>
+      <header>
+        <ProfileSC>
+          <img src="https://github.com/ygorbontia.png" />
+
+          <div>
+            <strong>Ygor Bontia</strong>
+            <span>Web Developer</span>
+          </div>
+        </ProfileSC>
+
+        <time title="28 de Janeiro às 17h27" dateTime='2023-01-28 17:27:00'>Publicado há 1h</time>
+      </header>
+
+      <ContentSC>
+        <p>Fala galeraa</p>
+
+        <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
+        
+        <p>
+          <a href="#">jane.design/doctorcare</a>
+        </p>
+        
+        <p class="tags">
+          <a href="#">#novoprojeto</a> 
+          <a href="#">#nlw</a> 
+          <a href="#">#rocketseat</a>
+        </p>
+      </ContentSC>
+
+      <CommentsSC>
+        <strong>Deixe seu feedback</strong>
+
+        <textarea placeholder="Deixe seu comentário" />
+
+        <button type="submit">Publicar</button>
+      </CommentsSC>
     </PostsSC>
   );
 };
