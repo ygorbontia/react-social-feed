@@ -1,38 +1,50 @@
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 import { PostsSC, ProfileSC, ContentSC, PublicationSC, CommentListSC } from './style';
 
 import { Avatar } from '../Avatar';
 import { Comment } from '../Comment';
 
-export function Posts() {
+export function Posts({ author, content, publishedAt }) {
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+    locale: ptBR
+  });
+
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true
+  })
+
   return (
     <PostsSC>
       <header>
         <ProfileSC>
-          <Avatar src="https://github.com/ygorbontia.png" />
+          <Avatar src={ author.avatarUrl } />
 
           <div>
-            <strong>Ygor Bontia</strong>
-            <span>Web Developer</span>
+            <strong>{ author.name }</strong>
+            <span>{ author.role }</span>
           </div>
         </ProfileSC>
 
-        <time title="28 de Janeiro às 17h27" dateTime='2023-01-28 17:27:00'>Publicado há 1h</time>
+        <time title={ publishedDateFormatted } dateTime={ publishedAt.toISOString() }>
+          { publishedDateRelativeToNow }
+        </time>
       </header>
 
       <ContentSC>
-        <p>Fala galeraa</p>
-
-        <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
-        
-        <p>
-          <a href="#">jane.design/doctorcare</a>
-        </p>
-        
-        <p className="tags">
-          <a href="#">#novoprojeto</a> 
-          <a href="#">#nlw</a> 
-          <a href="#">#rocketseat</a>
-        </p>
+        { content.map(item => {
+          if (item.type == 'paragraph') {
+            return <p>{ item.content }</p>
+          } else if (item.type == 'link') {
+            return (
+              <p>
+                <a href="#">{ item.content }</a>
+              </p>
+            )
+          }
+        }) }
       </ContentSC>
 
       <PublicationSC>
