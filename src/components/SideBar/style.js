@@ -53,15 +53,6 @@ export const ProfileSC = styled.div`
   flex-direction: column;
   align-items: center;
 
-  > img {
-    width: calc(4.8rem + 12px);
-    height: calc(4.8rem + 12px);
-    border-radius: 8px;
-    border: 4px solid ${({ theme }) => theme.colors.gray_800};
-    
-    outline: 2px solid ${({ theme }) => theme.colors.green_500};
-  }
-
   > strong {
     margin-top: 1.6rem;
 

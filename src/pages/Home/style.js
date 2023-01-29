@@ -13,6 +13,12 @@ export const HomeSC = styled.div`
     align-items: flex-start;
     gap: 3.2rem;
   }
+
+  @media (max-width: 768px) {
+    > main {
+      grid-template-columns: 1fr;
+    }
+  }
 `;
 
 export const ContentSC = styled.div`

@@ -1,11 +1,14 @@
-import { PostsSC, ProfileSC, ContentSC, CommentsSC } from './style';
+import { PostsSC, ProfileSC, ContentSC, PublicationSC, CommentListSC } from './style';
+
+import { Avatar } from '../Avatar';
+import { Comment } from '../Comment';
 
 export function Posts() {
   return (
     <PostsSC>
       <header>
         <ProfileSC>
-          <img src="https://github.com/ygorbontia.png" />
+          <Avatar src="https://github.com/ygorbontia.png" />
 
           <div>
             <strong>Ygor Bontia</strong>
@@ -25,20 +28,30 @@ export function Posts() {
           <a href="#">jane.design/doctorcare</a>
         </p>
         
-        <p class="tags">
+        <p className="tags">
           <a href="#">#novoprojeto</a> 
           <a href="#">#nlw</a> 
           <a href="#">#rocketseat</a>
         </p>
       </ContentSC>
 
-      <CommentsSC>
+      <PublicationSC>
         <strong>Deixe seu feedback</strong>
 
         <textarea placeholder="Deixe seu comentário" />
 
-        <button type="submit">Publicar</button>
-      </CommentsSC>
+        <div>
+          <button type="submit">Publicar</button>
+        </div>
+      </PublicationSC>
+
+      <CommentListSC>
+        <Comment />
+        
+        <Comment />
+
+        <Comment />
+      </CommentListSC>
     </PostsSC>
   );
 };
